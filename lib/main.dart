@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imc/constants.dart';
 import 'package:imc/screens/home.dart';
 
 void main() {
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IMC',
       theme: ThemeData.dark().copyWith(
-
+        scaffoldBackgroundColor: kAppbarColor,
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAppbarColor),
+        primaryColor: kAppbarColor,
       ),
       home: const Accueil(),
     );
