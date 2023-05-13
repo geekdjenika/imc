@@ -16,7 +16,7 @@ class _AccueilState extends State<Accueil> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kAppbarColor,
-        leading: const Icon(BootstrapIcons.filter_left),
+        leading: const Icon(BootstrapIcons.filter_left, size: 30.0,),
         title: Text(
           'Calcul IMC'.toUpperCase(),
           style: kTitleTextStyle,
@@ -31,25 +31,65 @@ class _AccueilState extends State<Accueil> {
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard()
+                    child: MyCard(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.male_rounded,
+                            size: 60.0,
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          Text(
+                            'HOMME',
+                            style: kTitleTextStyle,
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                   Expanded(
-                    child: MyCard(),
+                    child: MyCard(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.female_sharp,
+                            size: 60.0,
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          Text(
+                            'FEMME',
+                            style: kTitleTextStyle,
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: MyCard(),
+              child: MyCard(
+                child: Column(),
+              ),
             ),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard(),
+                    child: MyCard(
+                      child: Column(),
+                    ),
                   ),
                   Expanded(
-                    child: MyCard(),
+                    child: MyCard(
+                      child: Column(),
+                    ),
                   ),
                 ],
               ),

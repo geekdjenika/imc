@@ -3,6 +3,9 @@ import 'package:imc/constants.dart';
 
 class MyCard extends StatelessWidget {
 
+  MyCard({required this.child});
+  final Widget child;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,6 +18,7 @@ class MyCard extends StatelessWidget {
           ),
         ),
       ),
+      child: child,
     );
   }
 }
