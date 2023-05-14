@@ -2,6 +2,7 @@ import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:imc/constants.dart';
 import 'package:imc/widgets/my_card.dart';
+import 'package:imc/widgets/rounded_button.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({Key? key}) : super(key: key);
@@ -135,12 +136,66 @@ class _AccueilState extends State<Accueil> {
                 children: [
                   Expanded(
                     child: MyCard(
-                      child: Column(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('POIDS', style: kTitleTextStyle,),
+                          Text(_poids.toString(), style: kTailleTextStyle,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              RoundedButton(
+                                icon: BootstrapIcons.dash,
+                                action: () {
+                                  setState(() {
+                                    _poids > 25 ? _poids-- : _poids = _poids;
+                                  });
+                                },
+                              ),
+                              RoundedButton(
+                                icon: BootstrapIcons.plus,
+                                action: () {
+                                  setState(() {
+                                    _poids < 160 ? _poids++ : _poids = _poids;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
                     child: MyCard(
-                      child: Column(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('âge'.toUpperCase(), style: kTitleTextStyle,),
+                          Text(_age.toString(), style: kTailleTextStyle,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              RoundedButton(
+                                icon: BootstrapIcons.dash,
+                                action: () {
+                                  setState(() {
+                                    _age > 10 ? _age-- : _age = _age;
+                                  });
+                                },
+                              ),
+                              RoundedButton(
+                                icon: BootstrapIcons.plus,
+                                action: () {
+                                  setState(() {
+                                    _age < 150 ? _age++ : _age = _age;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
