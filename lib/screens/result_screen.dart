@@ -5,8 +5,10 @@ import 'package:imc/widgets/bottom_button.dart';
 import 'package:imc/widgets/my_card.dart';
 
 class ResultScreen extends StatelessWidget {
-
-  const ResultScreen({required this.resultatIMC, required this.resultat, required this.interpretation});
+  const ResultScreen(
+      {required this.resultatIMC,
+      required this.resultat,
+      required this.interpretation});
 
   final String resultatIMC;
   final String resultat;
@@ -31,9 +33,12 @@ class ResultScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Text(
-              'Votre résultat',
-              style: kTitle2TextStyle,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12.0, top: 20.0),
+              child: Text(
+                'Votre résultat',
+                style: kTitle2TextStyle,
+              ),
             ),
           ),
           Expanded(
@@ -56,7 +61,7 @@ class ResultScreen extends StatelessWidget {
                     interpretation,
                     style: kInterpretationTextStyle,
                     textAlign: TextAlign.center,
-                  )
+                  ),
                 ],
               ),
             ),

@@ -10,7 +10,7 @@ final kTitleTextStyle = GoogleFonts.montserrat(
   textStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
 );
 final kTitle2TextStyle = GoogleFonts.montserrat(
-  textStyle: const TextStyle(fontSize: 25.0, color: Colors.white),
+  textStyle: const TextStyle(fontSize: 35.0, color: Colors.white),
 );
 final kTailleTextStyle = GoogleFonts.montserrat(
   textStyle: const TextStyle(
@@ -26,7 +26,7 @@ final kResultTextStyle = GoogleFonts.montserrat(
 
 final kIMCTextStyle = GoogleFonts.montserrat(
   textStyle: const TextStyle(
-    fontSize: 100.0,
+    fontSize: 95.0,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   ),

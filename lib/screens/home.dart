@@ -2,6 +2,7 @@ import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:imc/constants.dart';
 import 'package:imc/screens/result_screen.dart';
+import 'package:imc/services/imc_calculator.dart';
 import 'package:imc/widgets/bottom_button.dart';
 import 'package:imc/widgets/my_card.dart';
 import 'package:imc/widgets/rounded_button.dart';
@@ -240,16 +241,29 @@ class _AccueilState extends State<Accueil> {
           ),
           BottomButton(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultScreen(
-                    resultat: 'Normal',
-                    interpretation: 'Continuez comme ça',
-                    resultatIMC: '19',
+              if (genre != null) {
+                IMCCalculator resultat = IMCCalculator(
+                    taille: _taille,
+                    poids: _poids,
+                    age: _age,
+                    genre: genre!);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultScreen(
+                      resultatIMC: resultat.calculerIMC(),
+                      resultat: resultat.getResult(),
+                      interpretation: resultat.getInterpretation(),
+                    ),
                   ),
-                ),
-              );
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Selectionnez le genre svp !"),
+                  ),
+                );
+              }
             },
             bottomTitle: 'Calculer'.toUpperCase(),
           )
