@@ -10,10 +10,10 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 3.0),
+      margin: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(
             8.0,
           ),
