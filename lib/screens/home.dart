@@ -16,6 +16,8 @@ class _AccueilState extends State<Accueil> {
   int _poids = 64;
   int _age = 26;
 
+  Genre? genre;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,42 +41,62 @@ class _AccueilState extends State<Accueil> {
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.male_rounded,
-                            size: 60.0,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'HOMME',
-                            style: kTitleTextStyle,
-                          )
-                        ],
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          genre = Genre.HOMME;
+                        });
+                      },
+                      child: MyCard(
+                        color: genre == Genre.HOMME
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.male_rounded,
+                              size: 60.0,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text(
+                              'HOMME',
+                              style: kTitleTextStyle,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: MyCard(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.female_sharp,
-                            size: 60.0,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'FEMME',
-                            style: kTitleTextStyle,
-                          )
-                        ],
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          genre = Genre.FEMME;
+                        });
+                      },
+                      child: MyCard(
+                        color: genre == Genre.FEMME
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.female_sharp,
+                              size: 60.0,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text(
+                              'FEMME',
+                              style: kTitleTextStyle,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -83,6 +105,7 @@ class _AccueilState extends State<Accueil> {
             ),
             Expanded(
               child: MyCard(
+                color: kActiveCardColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -96,7 +119,7 @@ class _AccueilState extends State<Accueil> {
                       textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
-                          '${_taille.toString().substring(0,1)},${_taille.toString().substring(1,3)}',
+                          '${_taille.toString().substring(0, 1)},${_taille.toString().substring(1, 3)}',
                           style: kTailleTextStyle,
                         ),
                         Text(
@@ -110,10 +133,10 @@ class _AccueilState extends State<Accueil> {
                         overlayColor: const Color(0x29ff0067),
                         thumbColor: kBottomButtonColor,
                         trackHeight: 1.0,
-                        thumbShape:
-                        const RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                        thumbShape: const RoundSliderThumbShape(
+                            enabledThumbRadius: 15.0),
                         overlayShape:
-                        const RoundSliderOverlayShape(overlayRadius: 30),
+                            const RoundSliderOverlayShape(overlayRadius: 30),
                       ),
                       child: Slider(
                         value: _taille.toDouble(),
@@ -136,11 +159,18 @@ class _AccueilState extends State<Accueil> {
                 children: [
                   Expanded(
                     child: MyCard(
+                      color: kActiveCardColor,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('POIDS', style: kTitleTextStyle,),
-                          Text(_poids.toString(), style: kTailleTextStyle,),
+                          Text(
+                            'POIDS',
+                            style: kTitleTextStyle,
+                          ),
+                          Text(
+                            _poids.toString(),
+                            style: kTailleTextStyle,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -168,11 +198,18 @@ class _AccueilState extends State<Accueil> {
                   ),
                   Expanded(
                     child: MyCard(
+                      color: kActiveCardColor,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('âge'.toUpperCase(), style: kTitleTextStyle,),
-                          Text(_age.toString(), style: kTailleTextStyle,),
+                          Text(
+                            'âge'.toUpperCase(),
+                            style: kTitleTextStyle,
+                          ),
+                          Text(
+                            _age.toString(),
+                            style: kTailleTextStyle,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
