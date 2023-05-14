@@ -9,7 +9,7 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 5.0),
+      margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 3.0),
       decoration: BoxDecoration(
         color: kActiveCardColor,
         borderRadius: BorderRadius.all(

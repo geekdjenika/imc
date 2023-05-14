@@ -11,19 +11,26 @@ class Accueil extends StatefulWidget {
 }
 
 class _AccueilState extends State<Accueil> {
+  int _taille = 174;
+  int _poids = 64;
+  int _age = 26;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kAppbarColor,
-        leading: const Icon(BootstrapIcons.filter_left, size: 30.0,),
+        leading: const Icon(
+          BootstrapIcons.filter_left,
+          size: 30.0,
+        ),
         title: Text(
           'Calcul IMC'.toUpperCase(),
           style: kTitleTextStyle,
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -75,7 +82,52 @@ class _AccueilState extends State<Accueil> {
             ),
             Expanded(
               child: MyCard(
-                child: Column(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Taille".toUpperCase(),
+                      style: kTitleTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          '${_taille.toString().substring(0,1)},${_taille.toString().substring(1,3)}',
+                          style: kTailleTextStyle,
+                        ),
+                        Text(
+                          "m",
+                        ),
+                      ],
+                    ),
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        activeTrackColor: Colors.white,
+                        overlayColor: const Color(0x29ff0067),
+                        thumbColor: kBottomButtonColor,
+                        trackHeight: 1.0,
+                        thumbShape:
+                        const RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                        overlayShape:
+                        const RoundSliderOverlayShape(overlayRadius: 30),
+                      ),
+                      child: Slider(
+                        value: _taille.toDouble(),
+                        min: 150.0,
+                        max: 210.0,
+                        inactiveColor: Colors.grey,
+                        onChanged: (valeur) {
+                          setState(() {
+                            _taille = valeur.round();
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Expanded(
